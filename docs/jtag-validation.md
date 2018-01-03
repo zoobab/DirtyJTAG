@@ -78,8 +78,11 @@ Segmentation fault (core dumped)
 
 ## JTAG Validation on a ESP32 board
 
+The ESP32 has JTAG pins exposed, see:
+
 https://github.com/espressif/esp-idf/issues/901
-https://user-images.githubusercontent.com/9928032/29207373-8749452e-7eb8-11e7-9a3d-08a4eda455af.png
+
+![ESP32 Devkit v1 JTAG pinout](img/esp32devkitv1-jtag-pinout.png)
 
 ```
 jtag> detect
