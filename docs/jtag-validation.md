@@ -75,3 +75,33 @@ Initialized bus 5, active bus 0
 jtag> detectflash 0x1fc00000
 Segmentation fault (core dumped)
 ```
+
+## JTAG Validation on a ESP32 board
+
+https://github.com/espressif/esp-idf/issues/901
+https://user-images.githubusercontent.com/9928032/29207373-8749452e-7eb8-11e7-9a3d-08a4eda455af.png
+
+```
+jtag> detect
+IR length: 10
+Chain length: 2
+Device Id: 00010010000000000011010011100101 (0x120034E5)
+  Unknown manufacturer! (01001110010) (/usr/share/urjtag/MANUFACTURERS)
+Device Id: 00010010000000000011010011100101 (0x120034E5)
+  Unknown manufacturer! (01001110010) (/usr/share/urjtag/MANUFACTURERS)
+```
+
+According to the JEDEC list, the manufacturer is:
+
+https://raw.githubusercontent.com/pmaupin/playtag/master/playtag/bsdl/data/manufacturers.txt
+
+01001110010   Tensilica
+
+But there might be a frequency problem:
+
+```
+jtag> discovery
+Detecting IR length ... warning: TDO seems to be stuck at 1
+-1
+Error: Invalid IR length!
+```
